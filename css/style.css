@@ -46,7 +46,7 @@ h1 {
     width: 100%;
     margin-left: 0;
     text-align: center;
-    position: relative;
+    position: fixed;
     top: 0;
     right: 0;
     z-index: 10;
@@ -198,7 +198,7 @@ body {
 /*menu-item styles*/
 /* arrow start*/
 
-.marker{ width: 400px; height: 150px; background-color:#F57709; background-size:cover;
+/*.marker{ width: 400px; height: 150px; background-color:#F57709; background-size:cover;
  -webkit-clip-path: polygon(0% 20%,60% 20%,60% 0%,100% 50%,60% 100%,60% 80%,0% 80%);
  transform: rotateZ(180deg); }
 
@@ -223,8 +223,74 @@ body {
  	flex-basis: 30%;
  	flex-shrink: 1;
  	align-self: space-between;
- }
+ }*/
  section{
  	height: auto;
  }
-/* arrow end*/
+.main-content{
+	padding-top: 12%;
+}
+.text{
+	border: 2px solid #a34cde;
+	border-radius: 10px;
+	background-color: red;
+	padding: 3%;
+}
+.sidebarlinks{
+	text-align: right;
+}
+.sidebarimg{
+	float: right;
+	width: 30%;
+	margin-right: 0;
+
+}
+.sidebarnav{
+	position: relative;
+	border: 1px solid black;
+	height: auto
+
+	width: 100%;
+	padding: 4%;
+	overflow: auto;
+}
+.sidebarnav span{
+	position: absolute;
+	top: 3%;
+	left: 0;
+	font-size: 10px;
+}
+.titles{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	font-size: 0.5em;
+	text-align: right;
+}
+
+p.pexp{
+	position: absolute;
+	
+	left: 50%;
+	text-align: right;
+	margin-left: 1%;
+	margin-top: 4%;
+	font-size: 0.9em;
+}
+.exp{
+	border: 1px solid black;
+	padding: 5%;
+	position: relative;
+	text-align: center;
+	right: 10%;
+	width: 60%;
+	font-size: 0.9em;
+	height: auto;
+	float: right;
+	margin-right: 4%;
+
+}
+ /*.scroll { box-shadow: 0 7px 0 0 rgba(0, 0, 0, .1); }
+ .scroll .logo { padding: 10px 20px; font-size: 1.5rem; } 
+ .scroll nav { align-items: center; }
+ .scroll .logo, .scroll ul, .scroll .toggle-menu { margin: 0; } */
