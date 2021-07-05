@@ -1,15 +1,30 @@
 @font-face {
-  font-family: "Vazir";
-  src: url("../fonts/Vazir.eot");
+  /*font-family: "Vazir";
+  src: url("../fonts/Vazir.eot");*/
   /* IE9 Compat Modes */
-  src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
+/*  src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"),
     url("../fonts/Vazir.woff2") format("woff2"),
     url("../fonts/Vazir.woff") format("woff"),
-    url("../fonts/Vazir.ttf") format("truetype");
+    url("../fonts/Vazir.ttf") format("truetype");*/
   /* Safari, Android, iOS */
+
+
+
+	font-family:"yekan";
+	src: url("../fonts/Yekan.eot");
+	src: url("../fonts/Yekan.eot?#iefix") format("embedded-opentype"),
+	 url("../fonts/Yekan.woff") format("woff"),
+	 url("../fonts/Yekan.ttf") format("truetype"),
+	 url("../fonts/Yekan.svg#BYekan") format("svg");
+	font-weight: normal;
+	font-style: normal
+
 }
 * {
 	box-sizing: border-box;
+}
+html{
+	scroll-behavior: smooth;
 }
 html, body {
     height: 100%;
@@ -98,7 +113,7 @@ nav ul li:hover a {
 
 nav ul li a {
 	display: block;
-	padding: 15px 32px;
+	padding: 15px 15px;
 	color: #4e4e4e;
 	text-decoration: none;
 }
@@ -180,8 +195,8 @@ img{
 }*/
 .rotate {
 	
-	transform: rotate(90deg);
-	width: 20%;
+	transform: rotate(180deg);
+	width: 100%;
 	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
 	
@@ -190,7 +205,7 @@ img{
 body {
   direction: rtl;
   text-align: center !important; 
-  font-family: "Vazir" !important;
+  font-family: "yekan" !important;
   line-height: 1.6;
 
 
@@ -248,6 +263,11 @@ body {
 	margin: 1%;
 	padding: 2em;
 
+
+}
+.imp:hover{
+	background-color: lightgray;
+	cursor: pointer;
 }
 .image{
 	border-radius: 50%;
@@ -280,6 +300,8 @@ body {
 	top: 10%;
 	right: 20%;
 	margin: 1%;
+	font-weight: bold;
+	color: black;
 }
 .matn{
 	position: absolute;
@@ -293,7 +315,84 @@ body {
 	left: 1%;
 	margin: 1%;
 }
+/*footer styles*/
+.panel-footer h5{
+	margin: 3%;
+}
+hr{
+	
+	border-color: blue;
+}
+.nam{
+	width: 48%;
+	float: right;
+	/*margin-left: 2%;*/
+	margin-bottom: 1%;
+}
+.mail{
+	width: 48%;
+	margin-right: 4%;
 
+}
+.mozoo{
+	width: 100%;
+	margin-bottom: 1%;
+}
+.payam{
+	width: 100%;
+}
+.panel-footer ul{
+	list-style-type: none;
+	text-align: right;
+	
+
+}
+.panel-footer ul li a{
+	color: black;
+}
+.tamas{
+	position: relative;
+	height: auto;
+	padding: 1em;
+}
+.tamas h5{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.address{
+	position: absolute;
+	right: 0;
+	top: 50%;
+}
+.email{
+	position: absolute;
+	right: 0%;
+	top: 90%;
+	padding-left: 2%;
+}
+
+
+.links{
+	position: relative;
+	
+	height: auto;
+}
+.links h5{
+	position: absolute;
+	right: 0;
+	top: 0
+}
+.links ul{
+	position: absolute;
+	right: 0%;
+	top: 100%;
+
+	
+}
+.links ul li{
+	padding-bottom: 5%;
+}
  /*.scroll { box-shadow: 0 7px 0 0 rgba(0, 0, 0, .1); }
  .scroll .logo { padding: 10px 20px; font-size: 1.5rem; } 
  .scroll nav { align-items: center; }
