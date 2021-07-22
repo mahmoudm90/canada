@@ -1,27 +1,83 @@
+<?php
+// include("./include/config.php");
+// include("./include/db.php");
 
-<footer class="text-center text-white bg-dark py-4">
-  <div class="container">
-    <div class="row flex-column">
-      <div>
-        <p class="">کلیه حقوق محتوای این سایت متعلق به فلان می باشد.</p>
+$query="SELECT * FROM footerlinks";
+$footerlinks=$db->query($query);
 
+ ?>
+<!-- start footer -->
+<div class="panel-footer footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="links">
+            <h5>لینک های مفید و سریع</h5><br><br>
+            <ul>
+                <?php 
+                  if ($footerlinks->rowcount() > 0) {
+                     foreach ($footerlinks as $link) {
+                       ?>
+                       <li class="">
+                        <a href="index.php?link=<?php echo $link['id']?>"><?php
+                         echo $link['title'] ?></a>
+                       </li>
+                     <?php  
+                     }
+                   } 
+
+                   ?>
+            
+            </ul>
+            
+          </div><br><br><br>
+          <hr>
+        
+          
+          <div class="tamas">
+            <h5>تماس با ما</h5><br>
+            <p class="address">آدرس</p><br>
+            <p class="email">ایمیل : smmpr_09@yahoo.com <span>تلفن :</span>
+            </p>
+          
+          </div><br>
+          <hr>
+          <h5>مارا در شبکه های اجتماعی دنبال کنید</h5>
+          <div class="nav-icons d-none d-md-block" id="social">
+                <a href="#">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+          </div>
+      
+      
+        </div>
+        <div class="col-lg-8 col-md-8">
+          <h5>نظرات  خود را برای ما ارسال  کنید</h5>
+          <form action="">
+            <input class="nam" type="text" placeholder="نام و نام خانوادگی">
+            <input class="mail" type="text" placeholder="ایمیل">
+            <input class="mozoo" type="text" placeholder="موضوع">
+            <textarea class="payam" name="" id="" cols="30" rows="10" placeholder="متن پیام"></textarea>
+          </form>
+      
+        </div>
+    
       </div>
-      <div>
-        <a href="#"><i class="fab fa-facebook fa-2x text-white"></i></a>
-        <a href="#"><i class="fab fa-instagram fa-2x text-white mr-2"></i></a>
-        <a href="#"><i class="fab fa-telegram fa-2x text-white mr-2"></i></a>
-
-      </div>
-
+    
     </div>
 
-
-  </div>
-
-</footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+</div>
+<!-- end footer -->
+<!-- jQuery (Bootstrap JS plugins depend on it)  -->
+<script src="./js/jquery-2.1.4.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/ajax-utils.js"></script>
+<script src="./js/script.js"></script>
 </body>
 </html>

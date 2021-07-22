@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Canada Deadline</title>
-  </head>
-  <body>
+  </head> 
+  
+  
+
 <!--start header-->
 
-<div class="wrapper">
+<!-- <div class="wrapper">
     <nav class="navbar navbar-expand-md  px-3">
       <div class="container">
         <div class="logo">
@@ -60,9 +62,9 @@
                 <a href="#">
                     <i class="fab fa-instagram"></i>
                 </a>
-          </div>
+          </div> -->
             <!-- End social icon -->
-          <div class="search">
+        <!--   <div class="search">
             <form class="" action="index.html" method="post">
               <input type="text" name="" value="">
             </form>
@@ -76,9 +78,13 @@
 
       </div>
 
-    </nav>
+    </nav> -->
 <!--end header-->
 <!-- start main-content -->
+
+<?php 
+include("./include/header.php");
+ ?>
 
   <div class="main-content">
     <div class="container">
@@ -143,7 +149,12 @@
 
       
         <!-- start sidebar -->
-        <div class="col-lg-3 col-md-3">
+        <?php 
+        include("./include/sidebar.php")
+
+
+         ?>
+       <!--  <div class="col-lg-3 col-md-3">
           <h1>تایتل بزرگ</h1>
           <div class="sidebar">
             <div class="imp"><a href="">
@@ -185,7 +196,7 @@
           </div>
           
   
-        </div>
+        </div> -->
         <!-- end sidebar -->
       </div>
     </div>
@@ -197,9 +208,13 @@
 
 
 <!-- end main-content -->
+  <?php
+ include("./include/footer.php");
 
+
+  ?>
 <!-- start footer -->
-<div class="panel-footer footer">
+<!-- <div class="panel-footer footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
@@ -237,7 +252,7 @@
           </div>
       
       
-        </div><!-- <hr class="rotate"> -->
+        </div> --> --><!-- <hr class="rotate">
         <div class="col-lg-8">
           <h5>نظرات  خود را برای ما ارسال  کنید</h5>
           <form action="">
@@ -253,10 +268,10 @@
     
     </div>
 
-</div>
-<!-- end footer -->
-<!-- jQuery (Bootstrap JS plugins depend on it) -->
-<script src="./js/jquery-2.1.4.min.js"></script>
+</div> -->
+<!-- end footer
+ jQuery (Bootstrap JS plugins depend on it) -->
+ <script src="./js/jquery-2.1.4.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/ajax-utils.js"></script>
 <script src="./js/script.js"></script>

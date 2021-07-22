@@ -30,7 +30,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    color: red;
+    
 }
 body {
     display: table;
@@ -208,6 +208,7 @@ body {
   text-align: center !important; 
   font-family: "yekan" !important;
   line-height: 1.6;
+ 
 
 
 }
@@ -310,6 +311,7 @@ body {
 .sidebar{
 	/*border: 1px solid blue;*/
 	height: 100%;
+	overflow: hidden;
 }
 .imp{
 	/*border: 1px solid red;*/
@@ -317,13 +319,16 @@ body {
 	width: 100%;
 	/*height: 15%;*/
 	margin-bottom: 3%;
-	padding: 2em;
+	padding: 5em;
+	font-size: .5em;
+	overflow: hidden;
 
 
 }
 .imp:hover{
 	background-color: lightgray;
 	cursor: pointer;
+
 }
 .image{
 	border-radius: 50%;
@@ -349,21 +354,25 @@ body {
 	width: 70%;
 	height: 80%;
 	padding: 3%;
+	overflow: hidden;
 
 }
 .titr{
 	position: absolute;
 	top: 10%;
 	right: 20%;
-	margin: 1%;
+	margin: auto;
 	font-weight: bold;
 	color: black;
+	font-size: 1em;
+
 }
 .matn{
 	position: absolute;
 	top: 40%;
-	right: 10%;
-	margin: 3%;
+	right: 5%;
+	margin: auto;
+	overflow: hidden;
 }
 .date{
 	position: absolute;
