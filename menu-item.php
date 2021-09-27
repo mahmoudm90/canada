@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Canada Deadline</title>
-  </head> 
-  
-  
+<?php
+include("./include/header.php");
+if (isset($_GET['item'])){
+  $item_id = $_GET['item'];
+  if ($item_id<4) {
+    $item = $db->prepare('SELECT * FROM items WHERE id=:id');
+    $item->execute(['id'=>$item_id]);
+    $item = $item->fetch();
+    $querysteps= "SELECT * FROM steps_items WHERE item_id = $item_id";
+    $itemsteps=$db->query($querysteps);
+  }
+
+
+
+
+}
+
+
+ ?>
+
 
 <!--start header-->
 
@@ -82,74 +88,222 @@
 <!--end header-->
 <!-- start main-content -->
 
-<?php 
-include("./include/header.php");
- ?>
 
-  <div class="main-content">
+
+  <div class="main-content mb-10">
     <div class="container">
       <div class="row">
 
-        <div class="content col-lg-9">
+        <div class="content col-lg-9 col-md-9">
 
-        
-          <h1 >تحصیل در کانادا</h1>
+
+          <h1><?php echo $item['title']; ?></h1>
+          <div class="col-lg-12 col-md-12 mb-5">
+            <img src="./upload/items/<?php echo $item['image']; ?>" alt="">
+          </div>
+
           <div class="text">
-          توضیح کلی راجعبه پذیرش تحصیلی در کاادا          توضیح کلی راجعبه پذیرش تحصیلی در کاادا
-          توضیح کلی راجعبه پذیرش تحصیلی در کاادا
-          توضیح کلی راجعبه پذیرش تحصیلی در کاادا
+            <?php
+            echo $item['body'];
+
+             ?>
+
 
           </div><br><br>
-          <section class="steps">
-            
-              
-                <div class="item-one">
-                  <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
-                  <a href="">توضیحات مرحله اول</a>
-                </div>
-                <div class="item-two">
-                  <img src="img/Arrow/25-arrow-icon/khat3.png"  alt="">
 
-                 
-                </div>
-                <div class="item-three">
-                  <a href=""><img src="img/paziresh tahsili Canada/4.jpg" alt=""></a>
-                  <a href="">توضحیات  مرتبط با مرحله دوم</a>
-                </div>
-                <div class="item-four">
-                  <img src="img/Arrow/25-arrow-icon/khat4.png" alt="">
-                </div>
-                <div class="item-five">
-                  <a href=""><img src="img/paziresh tahsili Canada/4.jpg" alt=""></a>
-                  <a href="">توضحیات  مرتبط با مرحله دوم</a>
-                </div>
-                <div class="item-six">
-                  <img src="img/Arrow/25-arrow-icon/khat3.png"  alt="">
+            <?php
 
-                 
-                </div>
-                <div class="item-seven">
-                  <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
-                  <a href="">توضیحات مرحله اول</a>
-                </div>
-                <div class="item-eight">
-                  <img src="img/Arrow/25-arrow-icon/khat4.png" alt="">
-                </div>
-                <div class="item-nine">
-                  <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
-                  <a href="">توضیحات مرحله اول</a>
-                </div>
-         
-                
-              
+            if ($itemsteps->rowcount() > 0) {
+              $a = ($itemsteps->rowcount())/8;
+              if ($a > 1) {
+                $b = $a / 4;
+                 for ($i=0; $i <$b ; $i++) {
+              ?>
+
+                <section class="steps">
+                  <?php
+                  $count = 0;
+                  foreach ($itemsteps as $itemstep) {
 
 
-          </section>
+
+                    ?>
+                    <div class="<?php echo $itemstep['class'] ?>">
+                      <a href="step.php?steps-item=<?php echo $itemstep['id'] ?>"><img src="upload/stepsitems/<?php echo $itemstep['image'] ?>" alt=""></a>
+                      <a href="step.php?steps-item=<?php echo $itemstep['id'] ?>"><h6><?php echo $itemstep['title'] ?></h6></a>
+                      <a href="step.php?steps-item=<?php echo $itemstep['id'] ?>"><?php echo substr($itemstep['body_image'],0,51) ?></a>
+                    </div>
+
+                    <?php
+
+
+
+                }
+
+
+
+                   ?>
+                  <!-- <div class="item-one">
+                    <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
+                    <a href="">توضیحات مرحله اول</a>
+                  </div>
+                  <div class="item-two">
+                    <img src="img/Arrow/25-arrow-icon/khat3.png"  alt="">
+                    <a href=""></a>
+
+
+                  </div>
+                  <div class="item-three">
+                    <a href=""><img src="img/paziresh tahsili Canada/4.jpg" alt=""></a>
+                    <a href="">توضحیات  مرتبط با مرحله دوم</a>
+                  </div>
+                  <div class="item-four">
+                    <img src="img/Arrow/25-arrow-icon/khat4.png" alt="">
+                  </div>
+                  <div class="item-five">
+                    <a href=""><img src="img/paziresh tahsili Canada/4.jpg" alt=""></a>
+                    <a href="">توضحیات  مرتبط با مرحله دوم</a>
+                  </div>
+                  <div class="item-six">
+                    <img src="img/Arrow/25-arrow-icon/khat3.png"  alt="">
+
+
+                  </div>
+                  <div class="item-seven">
+                    <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
+                    <a href="">توضیحات مرحله اول</a>
+                  </div>
+                  <div class="item-eight">
+                    <img src="img/Arrow/25-arrow-icon/khat4.png" alt="">
+                  </div>
+                  <div class="item-nine">
+                    <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
+                    <a href="">توضیحات مرحله اول</a>
+                  </div> -->
+
+
+
+
+
+
+
+                </section>
+                <?php
+              }
+
+
+              }
+              else{
+                ?>
+                <section class="steps">
+                  <?php
+                  foreach ($itemsteps as $itemstep) {
+                    ?>
+                    <div class="<?php echo $itemstep['class'] ?>">
+                      <?php
+                      if ($itemstep['id'] % 2 != 0) {
+                        ?>
+                        <a href="step.php?steps-item=<?php echo $itemstep['id'] ?>"><img src="upload/stepsitems/<?php echo $itemstep['image'] ?>" alt=""></a>
+                        <?php
+                      }else {
+                        ?>
+                        <img src="upload/stepsitems/<?php echo $itemstep['image'] ?>" alt="">
+                      <?php
+                      }
+
+                       ?>
+
+                      <?php
+                      if ($itemstep['id'] % 2 != 0) {
+                        ?>
+                        <a href="step.php?steps-item=<?php echo $itemstep['id'] ?>"><h6><?php echo $itemstep['title'] ?></h6></a>
+                        <a href="step.php?steps-item=<?php echo $itemstep['id'] ?>" class="small"><?php echo substr($itemstep['body_image'], 0, 100) ?></a>
+                        <?php
+                      }
+                      ?>
+
+
+                    </div>
+
+                    <?php
+
+                  }
+
+
+
+                   ?>
+                  <!-- <div class="item-one">
+                    <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
+                    <a href="">توضیحات مرحله اول</a>
+                  </div>
+                  <div class="item-two">
+                    <img src="img/Arrow/25-arrow-icon/khat3.png"  alt="">
+                    <a href=""></a>
+
+
+                  </div>
+                  <div class="item-three">
+                    <a href=""><img src="img/paziresh tahsili Canada/4.jpg" alt=""></a>
+                    <a href="">توضحیات  مرتبط با مرحله دوم</a>
+                  </div>
+                  <div class="item-four">
+                    <img src="img/Arrow/25-arrow-icon/khat4.png" alt="">
+                  </div>
+                  <div class="item-five">
+                    <a href=""><img src="img/paziresh tahsili Canada/4.jpg" alt=""></a>
+                    <a href="">توضحیات  مرتبط با مرحله دوم</a>
+                  </div>
+                  <div class="item-six">
+                    <img src="img/Arrow/25-arrow-icon/khat3.png"  alt="">
+
+
+                  </div>
+                  <div class="item-seven">
+                    <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
+                    <a href="">توضیحات مرحله اول</a>
+                  </div>
+                  <div class="item-eight">
+                    <img src="img/Arrow/25-arrow-icon/khat4.png" alt="">
+                  </div>
+                  <div class="item-nine">
+                    <a href=""><img src="img/paziresh tahsili Canada/3.jpg" alt=""></a>
+                    <a href="">توضیحات مرحله اول</a>
+                  </div> -->
+
+
+
+
+
+
+
+                </section>
+                <?php
+
+              }
+
+
+
+
+
+            }
+
+
+
+             ?>
+
+
+
+
+
+
+
+
+
         </div>
 
-      
+
         <!-- start sidebar -->
-        <?php 
+        <?php
         include("./include/sidebar.php")
 
 
@@ -194,8 +348,8 @@ include("./include/header.php");
 
        </form>
           </div>
-          
-  
+
+
         </div> -->
         <!-- end sidebar -->
       </div>
@@ -225,17 +379,17 @@ include("./include/header.php");
               <li><a href="">ویزای تحصیلی</a></li>
               <li><a href="">رنکینگ دانشگاه ها</a></li>
             </ul>
-            
+
           </div><br><br><br>
           <hr>
-        
-          
+
+
           <div class="tamas">
             <h5>تماس با ما</h5><br>
             <p class="address">آدرس</p><br>
             <p class="email">ایمیل : smmpr_09@yahoo.com <span>تلفن :</span>
             </p>
-          
+
           </div><br>
           <hr>
           <h5>مارا در شبکه های اجتماعی دنبال کنید</h5>
@@ -250,9 +404,9 @@ include("./include/header.php");
                     <i class="fab fa-instagram"></i>
                 </a>
           </div>
-      
-      
-        </div> --> --><!-- <hr class="rotate">
+
+
+        </div> --> <!-- <hr class="rotate">
         <div class="col-lg-8">
           <h5>نظرات  خود را برای ما ارسال  کنید</h5>
           <form action="">
@@ -261,11 +415,11 @@ include("./include/header.php");
             <input class="mozoo" type="text" placeholder="موضوع">
             <textarea class="payam" name="" id="" cols="30" rows="10" placeholder="متن پیام"></textarea>
           </form>
-      
+
         </div>
-    
+
       </div>
-    
+
     </div>
 
 </div> -->

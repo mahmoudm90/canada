@@ -1,13 +1,12 @@
 <?php
-// include("./include/config.php");
-// include("./include/db.php");
+
 
 $query="SELECT * FROM footerlinks";
 $footerlinks=$db->query($query);
 
  ?>
 <!-- start footer -->
-<div class="panel-footer footer">
+<div class="panel-footer footer pt-10 mt-30">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
@@ -19,7 +18,7 @@ $footerlinks=$db->query($query);
                      foreach ($footerlinks as $link) {
                        ?>
                        <li class="">
-                        <a href="index.php?link=<?php echo $link['id']?>"><?php
+                        <a href="menu-item.php?item=<?php echo $link['id']?>"><?php
                          echo $link['title'] ?></a>
                        </li>
                      <?php  

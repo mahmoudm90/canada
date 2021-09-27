@@ -1,6 +1,6 @@
 <?php
-$query_imps = "SELECT * FROM sidebarimportants";
-$sidebarimportants = $db->query($query_imps);
+$query_imps = "SELECT * FROM news ORDER BY id DESC ";
+$news = $db->query($query_imps);
 
 
  ?>
@@ -8,22 +8,22 @@ $sidebarimportants = $db->query($query_imps);
 <div class="col-lg-3 col-md-3">
           <h1>تایتل بزرگ</h1>
           <div class="sidebar">
-            <?php 
-            if ($sidebarimportants->rowcount() > 0) {
-              foreach ($sidebarimportants as $sidebarimportant) {
+            <?php
+            if ($news->rowcount() > 0) {
+              foreach ($news as $new) {
                ?>
-              <div class="imp"><a href="news.php?title=<?php echo $sidebarimportant['id']; ?>">
+              <div class="imp"><a href="news.php?news_id=<?php echo $new['id']; ?>">
                 <div class="image">
-                  <img class="imagee" src="img/paziresh tahsili Canada/<?php echo $sidebarimportant['image']; ?>" alt="">
+                  <img class="imagee" src="./upload/news/<?php echo $new['image']; ?>" alt="">
                 </div>
                 <div class="con">
-                  <h6 class="titr"> <?php echo $sidebarimportant['title']; ?> </h6>
-                  <p class="matn"> <?php echo $sidebarimportant['body'] ?> </p>
-                  <span class="date"> <?php echo $sidebarimportant['date'] ?> </span>
+                  <h6 class="titr"> <?php echo $new['title']; ?> </h6>
+                  <p class="matn"> <?php echo substr($new['body'], 0, 200). "..." ?> </p>
+                  <span class="date"> <?php echo $new['datee'] ?> </span>
                 </div>
                 </a>
-              </div> 
-              <?php 
+              </div>
+              <?php
               }
             }
 
@@ -51,6 +51,7 @@ $sidebarimportants = $db->query($query_imps);
               </div>
               </a>
             </div> -->
+            <p class="rooz"><a href="news.php" class="">آخرین اخبار <span>>></span></a></p>
               <form method="post">
                 <div class="from-group">
                   <label for="name">نام</label>
@@ -66,8 +67,6 @@ $sidebarimportants = $db->query($query_imps);
 
               </form>
             </div>
-          
-  
+
+
           </div>
-
-

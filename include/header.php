@@ -40,62 +40,107 @@ $items=$db->query($query);
 <!--start header-->
 
 <div class="wrapper">
-    <nav class="navbar navbar-expand-md  px-3">
-      <div class="container">
+    <nav class="navbar navbar-expand-md px-3">
+
+
         <div class="logo">
           <a href="index.php" class="navbar-brand ">
             <img src="./img/download.jpg"  alt="logo image">
           </a>
         </div>
-        <div class="">
-          <h1 class="title">کانادا ددلاین</h1>
+        <div class="menu-items">
+          <h1 class="title center">کانادا ددلاین</h1>
           <div class="">
             <nav>
                 <ul>
-                  <?php 
+                  <?php
                   if ($items->rowcount() > 0) {
                      foreach ($items as $item) {
                       $a = $item['id'];
-                      echo $a;
+
 
                       $querysubone= "SELECT * FROM suboneitems WHERE itemid = $a";
                       $suboneitems=$db->query($querysubone);
 
-                    
+
                        ?>
 
                       <li class="nav-item <?php echo(isset($_GET['item']) && $item['id'] == $_GET['item'] ) ? "active" : ""; ?>">
-                        <a href="index.php?item=<?php echo $item['id']?>"><?php
-                         echo $item['title'] ?></a>
+                        <?php
+                        if ($item['id'] < 4) {
+                          ?>
+                          <a href="menu-item.php?item=<?php echo $item['id']?>"><?php
+                          echo $item['title'] ?></a>
+                          <?php
+                        }elseif ($item['id'] == 4) {
+                          ?>
+                          <a href="news.php"><?php
+                          echo $item['title'] ?></a>
+                          <?php
+                        }
+                        else{
+                          ?>
+                          <a href="subitem.php?item=<?php echo $item['id']?>"><?php
+                          echo $item['title'] ?></a>
+                          <?php
+
+                        }
+
+
+
+
+                         ?>
+
                        <ul>
                         <?php
                         if ($suboneitems->rowcount() > 0) {
                            foreach ($suboneitems as $suboneitem) {
+                            $b = $suboneitem['id'];
+                            $querysubtwo= "SELECT * FROM subtwoitems WHERE itemoneid = $b";
+                            $subtwoitems=$db->query($querysubtwo);
+
+
                              ?>
                               <li class="nav-item">
-                                <a href="index.php?suboneitem=<?php echo $suboneitem['id']?>"><?php 
+                                <a href="subitem.php?suboneitem=<?php echo $suboneitem['id']?>"><?php
                                 echo $suboneitem['title']
 
                                ?>
-                              
+
                               </a>
+                                <ul>
+                                  <?php
+                                  if ($subtwoitems->rowcount() > 0) {
+                                    foreach ($subtwoitems as $subtwoitem) {
+                                      ?>
+                                      <li class="nav-item">
+                                        <a href="subitem.php?subtwoitem=<?php echo $subtwoitem['id'] ?>"><?php echo $subtwoitem['title']; ?></a>
+                                      </li>
+                                      <?php
+                                    }
+                                  }
+
+
+                                   ?>
+
+                                </ul>
                             </li>
-                            <?php 
+                            <?php
                            }
-                         } 
+                         }
 
 
                          ?>
-                         
-                       </ul>
-                      
-                      </li>
-                     <?php  
-                     }
-                   } 
 
+                       </ul>
+
+                      </li>
+                     <?php
+                     }
+
+}
                    ?>
-                  
+
                 </ul>
               </nav>
 
@@ -116,17 +161,15 @@ $items=$db->query($query);
           </div>
             <!-- End social icon -->
           <div class="search">
-            <form class="" action="index.html" method="post">
-              <input type="text" name="" value="">
+            <form class="" action="search.php" method="post">
+              <div>
+                <input type="text" name="searchword" placeholder="جستجو...">
+                <input type="submit" class="searchbutton" name="search" value="">
+              </div>
+
             </form>
           </div>
 
         </div>
-
-
-
-
-
-      </div>
 
     </nav>
