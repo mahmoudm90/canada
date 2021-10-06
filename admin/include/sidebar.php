@@ -37,6 +37,12 @@
                     مراحل
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="feedbacks.php">
+                    <i class="fas fa-comments"></i>
+                    فیدبک‌ها
+                </a>
+            </li>
 
         </ul>
 

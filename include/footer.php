@@ -1,5 +1,21 @@
 <?php
+if (isset($_POST['idea'])) {
+  if (trim($_POST['nam'])!="" && trim($_POST['mail'])!="" && trim($_POST['mozoo'])!="" && trim($_POST['payam'])!="") {
+    $name = $_POST['nam'];
+    $mail = $_POST['mail'];
+    $topic = $_POST['mozoo'];
+    $feedback = $_POST['payam'];
 
+    $item_insert = $db->prepare("INSERT INTO feedbacks(name, mail, topic, feedback) VALUES (:name, :mail, :topic, :feedback)");
+    $item_insert->execute(['name'=>$name, 'mail'=>$mail, 'topic'=>$topic, 'feedback'=>$feedback]);
+
+    header("Location:index.php");
+    exit();
+  }else {
+    header("Location:index.php?err_msg=تمامی فیلدها الزامی است");
+    exit();
+  }
+}
 
 $query="SELECT * FROM footerlinks";
 $footerlinks=$db->query($query);
@@ -13,7 +29,7 @@ $footerlinks=$db->query($query);
           <div class="links">
             <h5>لینک های مفید و سریع</h5><br><br>
             <ul>
-                <?php 
+                <?php
                   if ($footerlinks->rowcount() > 0) {
                      foreach ($footerlinks as $link) {
                        ?>
@@ -21,24 +37,24 @@ $footerlinks=$db->query($query);
                         <a href="menu-item.php?item=<?php echo $link['id']?>"><?php
                          echo $link['title'] ?></a>
                        </li>
-                     <?php  
+                     <?php
                      }
-                   } 
+                   }
 
                    ?>
-            
+
             </ul>
-            
+
           </div><br><br><br>
           <hr>
-        
-          
+
+
           <div class="tamas">
             <h5>تماس با ما</h5><br>
             <p class="address">آدرس</p><br>
             <p class="email">ایمیل : smmpr_09@yahoo.com <span>تلفن :</span>
             </p>
-          
+
           </div><br>
           <hr>
           <h5>مارا در شبکه های اجتماعی دنبال کنید</h5>
@@ -53,22 +69,24 @@ $footerlinks=$db->query($query);
                     <i class="fab fa-instagram"></i>
                 </a>
           </div>
-      
-      
+
+
         </div>
         <div class="col-lg-8 col-md-8">
           <h5>نظرات  خود را برای ما ارسال  کنید</h5>
-          <form action="">
-            <input class="nam" type="text" placeholder="نام و نام خانوادگی">
-            <input class="mail" type="text" placeholder="ایمیل">
-            <input class="mozoo" type="text" placeholder="موضوع">
-            <textarea class="payam" name="" id="" cols="30" rows="10" placeholder="متن پیام"></textarea>
+          <form action="" method="post">
+            <input class="nam" name="nam" type="text" placeholder="نام و نام خانوادگی">
+            <input class="mail" name="mail" type="text" placeholder="ایمیل">
+            <input class="mozoo" name="mozoo" type="text" placeholder="موضوع">
+            <textarea class="payam" name="payam" id="" cols="30" rows="10" placeholder="متن پیام"></textarea>
+             <button type="submit" name="idea" class="btn btn-outline-primary btn-block mb-2">ارسال</button>
+
           </form>
-      
+
         </div>
-    
+
       </div>
-    
+
     </div>
 
 </div>
