@@ -28,6 +28,7 @@ if (isset($_GET['id'])) {
        <h4 class="envan" style="float:right;"><?php echo $feedback['name']; ?></h4>
 
        <p class="tarikh" style="float:left;"><?php echo $feedback['mail']; ?></p><br><br>
+       <h5><?php echo $feedback['topic']; ?></h5>
 
        <p><?php echo $feedback['feedback']; ?></p>
 
