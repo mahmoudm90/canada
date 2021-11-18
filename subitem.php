@@ -7,46 +7,46 @@ if (isset($_GET['item'])){
     $item->execute(['id'=>$item_id]);
     $item = $item->fetch();
 
-   
+
   }
-  
 
 
- 
+
+
 }
 if (isset($_GET['suboneitem'])){
   $suboneitem_id = $_GET['suboneitem'];
-  
+
     $suboneitem = $db->prepare('SELECT * FROM suboneitems WHERE id=:id');
     $suboneitem->execute(['id'=>$suboneitem_id]);
     $suboneitem = $suboneitem->fetch();
-    
-   
-
-  
 
 
- 
+
+
+
+
+
 }
 
 if (isset($_GET['subtwoitem'])){
   $subtwoitem_id = $_GET['subtwoitem'];
-  
+
     $subtwoitem = $db->prepare('SELECT * FROM subtwoitems WHERE id=:id');
     $subtwoitem->execute(['id'=>$subtwoitem_id]);
     $subtwoitem = $subtwoitem->fetch();
-    
-   
-
-  
 
 
- 
+
+
+
+
+
 }
 
 
  ?>
-  
+
 
 <!--start header-->
 
@@ -129,8 +129,8 @@ if (isset($_GET['subtwoitem'])){
             ?>
             <h1><?php echo $item['title']; ?></h1>
             <div class="img mt-3">
-              <img src="upload/subitems/<?php echo $item['image'] ?>" alt="">
-        
+              <img src="upload/items/<?php echo $item['image'] ?>" alt="">
+
 
             </div><br>
             <div class="expl">
@@ -141,13 +141,13 @@ if (isset($_GET['subtwoitem'])){
 
 
 
-           <?php 
+           <?php
            }elseif (isset($_GET['suboneitem'])) {
             ?>
             <h1><?php echo $suboneitem['title']; ?></h1>
             <div class="img mt-3">
-              <img src="upload/subitems/<?php echo $suboneitem['image'] ?>" alt="">
-        
+              <img src="upload/suboneitems/<?php echo $suboneitem['image'] ?>" alt="">
+
 
             </div><br>
             <div class="expl">
@@ -155,13 +155,13 @@ if (isset($_GET['subtwoitem'])){
               <h6 class="h6expl">نویسنده : <?php echo $suboneitem['author']; ?></h6>
               <span class="spexpl"><?php echo $suboneitem['date']; ?></span>
             </div>
-             <?php 
+             <?php
            }elseif (isset($_GET['subtwoitem'])) {
             ?>
             <h1><?php echo $subtwoitem['title']; ?></h1>
             <div class="img mt-3">
-              <img src="upload/subitems/<?php echo $subtwoitem['image'] ?>" alt="">
-        
+              <img src="upload/subtwoitems/<?php echo $subtwoitem['image'] ?>" alt="">
+
 
             </div><br>
             <div class="expl">
@@ -169,22 +169,22 @@ if (isset($_GET['subtwoitem'])){
               <h6 class="h6expl">نویسنده : <?php echo $subtwoitem['author']; ?></h6>
               <span class="spexpl"><?php echo $subtwoitem['date']; ?></span>
             </div>
-             <?php 
-           }  
+             <?php
+           }
 
            ?>
 
-        
-          
-         
-          
-           
-          
+
+
+
+
+
+
         </div>
 
-      
+
         <!-- start sidebar -->
-        <?php 
+        <?php
         include("./include/sidebar.php")
 
 
@@ -229,8 +229,8 @@ if (isset($_GET['subtwoitem'])){
 
        </form>
           </div>
-          
-  
+
+
         </div> -->
         <!-- end sidebar -->
       </div>
@@ -260,17 +260,17 @@ if (isset($_GET['subtwoitem'])){
               <li><a href="">ویزای تحصیلی</a></li>
               <li><a href="">رنکینگ دانشگاه ها</a></li>
             </ul>
-            
+
           </div><br><br><br>
           <hr>
-        
-          
+
+
           <div class="tamas">
             <h5>تماس با ما</h5><br>
             <p class="address">آدرس</p><br>
             <p class="email">ایمیل : smmpr_09@yahoo.com <span>تلفن :</span>
             </p>
-          
+
           </div><br>
           <hr>
           <h5>مارا در شبکه های اجتماعی دنبال کنید</h5>
@@ -285,8 +285,8 @@ if (isset($_GET['subtwoitem'])){
                     <i class="fab fa-instagram"></i>
                 </a>
           </div>
-      
-      
+
+
         </div> --> <!-- <hr class="rotate">
         <div class="col-lg-8">
           <h5>نظرات  خود را برای ما ارسال  کنید</h5>
@@ -296,11 +296,11 @@ if (isset($_GET['subtwoitem'])){
             <input class="mozoo" type="text" placeholder="موضوع">
             <textarea class="payam" name="" id="" cols="30" rows="10" placeholder="متن پیام"></textarea>
           </form>
-      
+
         </div>
-    
+
       </div>
-    
+
     </div>
 
 </div> -->

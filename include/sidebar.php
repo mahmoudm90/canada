@@ -6,7 +6,7 @@ $news = $db->query($query_imps);
  ?>
 
 <div class="col-lg-3 col-md-3">
-          <h1>تایتل بزرگ</h1>
+          <h1>آخرین خبرها</h1>
           <div class="sidebar">
             <?php
             if ($news->rowcount() > 0) {
@@ -52,7 +52,7 @@ $news = $db->query($query_imps);
               </a>
             </div> -->
             <p class="rooz"><a href="news.php" class="">آخرین اخبار <span>>></span></a></p>
-              <form method="post">
+              <!-- <form method="post">
                 <div class="from-group">
                   <label for="name">نام</label>
                   <input type="text" name="name" id="name" class="form-control" placeholder="نام خود را وارد کنید">
@@ -65,7 +65,7 @@ $news = $db->query($query_imps);
                 </div>
                 <button type="submit" name="subscribe" class="btn btn-outline-primary btn-block">ارسال</button>
 
-              </form>
+              </form> -->
             </div>
 
 

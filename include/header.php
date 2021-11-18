@@ -94,10 +94,13 @@ $items=$db->query($query);
                        <ul>
                         <?php
                         if ($suboneitems->rowcount() > 0) {
+                          $count = 0;
                            foreach ($suboneitems as $suboneitem) {
+                            $count = $count + 1;
                             $b = $suboneitem['id'];
                             $querysubtwo= "SELECT * FROM subtwoitems WHERE itemoneid = $b";
                             $subtwoitems=$db->query($querysubtwo);
+                            $c = $subtwoitems->rowcount();
 
 
                              ?>
@@ -108,22 +111,95 @@ $items=$db->query($query);
                                ?>
 
                               </a>
-                                <ul>
-                                  <?php
-                                  if ($subtwoitems->rowcount() > 0) {
-                                    foreach ($subtwoitems as $subtwoitem) {
-                                      ?>
-                                      <li class="nav-item">
-                                        <a href="subitem.php?subtwoitem=<?php echo $subtwoitem['id'] ?>"><?php echo $subtwoitem['title']; ?></a>
-                                      </li>
-                                      <?php
+                              <?php
+                              if ($count < 4) {
+                                if ($c < 5) {
+                                  ?>
+                                  <ul>
+                                    <?php
+                                    if ($subtwoitems->rowcount() > 0) {
+                                      foreach ($subtwoitems as $subtwoitem) {
+                                        ?>
+                                        <li class="nav-item">
+                                          <a href="subitem.php?subtwoitem=<?php echo $subtwoitem['id'] ?>"><?php echo $subtwoitem['title']; ?></a>
+                                        </li>
+                                        <?php
+                                      }
                                     }
-                                  }
 
 
-                                   ?>
+                                     ?>
 
-                                </ul>
+                                  </ul>
+                                  <?php
+                                }else {
+                                  ?>
+                                  <ul class="subonemin4twomin5">
+                                    <?php
+                                    if ($subtwoitems->rowcount() > 0) {
+                                      foreach ($subtwoitems as $subtwoitem) {
+                                        ?>
+                                        <li class="nav-item">
+                                          <a href="subitem.php?subtwoitem=<?php echo $subtwoitem['id'] ?>"><?php echo $subtwoitem['title']; ?></a>
+                                        </li>
+                                        <?php
+                                      }
+                                    }
+
+
+                                     ?>
+
+                                  </ul>
+                                  <?php
+                                }
+
+
+
+
+                              }else{
+                                if ($c < 3) {
+                                  ?>
+                                  <ul class="">
+                                    <?php
+                                    if ($subtwoitems->rowcount() > 0) {
+                                      foreach ($subtwoitems as $subtwoitem) {
+                                        ?>
+                                        <li class="nav-item">
+                                          <a href="subitem.php?subtwoitem=<?php echo $subtwoitem['id'] ?>"><?php echo $subtwoitem['title']; ?></a>
+                                        </li>
+                                        <?php
+                                      }
+                                    }
+
+
+                                     ?>
+
+                                  </ul>
+                                  <?php
+                                }else {
+                                  ?>
+                                  <ul class="subtwomin5">
+                                    <?php
+                                    if ($subtwoitems->rowcount() > 0) {
+                                      foreach ($subtwoitems as $subtwoitem) {
+                                        ?>
+                                        <li class="nav-item">
+                                          <a href="subitem.php?subtwoitem=<?php echo $subtwoitem['id'] ?>"><?php echo $subtwoitem['title']; ?></a>
+                                        </li>
+                                        <?php
+                                      }
+                                    }
+
+
+                                     ?>
+
+                                  </ul>
+                                  <?php
+                                }
+                              }
+
+                               ?>
+
                             </li>
                             <?php
                            }
@@ -164,7 +240,8 @@ $items=$db->query($query);
             <form class="" action="search.php" method="post">
               <div>
                 <input type="text" name="searchword" placeholder="جستجو...">
-                <input type="submit" class="searchbutton" name="search" value="">
+                <button type="submit" class="searchbutton" name="search" value=""><i class="fa fa-search"></i></button>
+
               </div>
 
             </form>

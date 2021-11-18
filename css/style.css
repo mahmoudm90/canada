@@ -159,8 +159,8 @@ nav ul ul {
 	position: absolute;
 	top: 100%;
 	right: 0;
-	width: 200px;
-    text-align: center;
+	width: 250px;
+  text-align: center;
 }
 nav ul ul li {
 	float: none;
@@ -179,10 +179,38 @@ nav ul ul ul {
 	position: absolute;
 	right: 100%;
 	top:0;
-    text-align: center;
+  text-align: center;
+	/* overflow-y: auto; */
+	/* height: 500%; */
 
 }
+nav ul ul ul.subonemin4twomin5 {
+	position: absolute;
+	right: 100%;
+	top:0;
+  text-align: center;
+	overflow-y: auto;
+	height: 500%;
 
+}
+nav ul ul ul.subtwomax5 {
+	position: absolute;
+	right: 100%;
+	top: -275%;
+  text-align: center;
+	/* overflow-y: auto; */
+	/* height: 500%; */
+
+}
+nav ul ul ul.subtwomin5 {
+	position: absolute;
+	right: 100%;
+	top: -275%;
+  text-align: center;
+	/* overflow-y: auto; */
+	/* height: 500%; */
+
+}
 /*
 #social{
     position: absolute;

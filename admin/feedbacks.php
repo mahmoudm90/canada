@@ -51,7 +51,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                    <td><?php echo $feedback['feedback'] ?></td>
                    <td>
                      <a href="watch_feedback.php?id=<?php echo $feedback['id'] ?>" class="btn btn-outline-info">مشاهده</a>
-                     <a href="feedback.php?action=delete&id=<?php echo $feedback['id'] ?>" class="btn btn-outline-info">حذف</a>
+                     <a href="feedbacks.php?action=delete&id=<?php echo $feedback['id'] ?>" class="btn btn-outline-info">حذف</a>
                    </td>
                  </tr>
                  <?php

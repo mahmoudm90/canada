@@ -9,8 +9,8 @@ if (isset($_POST['idea'])) {
     $item_insert = $db->prepare("INSERT INTO feedbacks(name, mail, topic, feedback) VALUES (:name, :mail, :topic, :feedback)");
     $item_insert->execute(['name'=>$name, 'mail'=>$mail, 'topic'=>$topic, 'feedback'=>$feedback]);
 
-    header("Location:index.php");
-    exit();
+    // header("Location:footer.php");
+    // exit();
   }else {
     header("Location:index.php?err_msg=تمامی فیلدها الزامی است");
     exit();
